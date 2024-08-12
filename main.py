@@ -3,8 +3,9 @@ from datetime import datetime
 import pandas
 import random
 
-MY_EMAIL = "pytmailbot@gmail.com"
-MY_PASSWORD = "tjoztbarskqazapt"
+# UPDATE THESE 2 LINES
+MY_EMAIL = "YOUR MAIL"
+MY_PASSWORD = "YOUR GOOGLE PASSKEY"
 
 today = datetime.now()
 today_tuple = (today.month, today.day)
@@ -18,6 +19,8 @@ if today_tuple in birthdays_dict:
         contents = letter_file.read()
         contents = contents.replace("[NAME]", birthday_person["name"])
 
+    # THIS WILL WORK IF YOU USE GMAIL
+    # IF YOU USE OTHER MAIL YOU WILL HAVE TO MODIFY THIS LINE
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)
